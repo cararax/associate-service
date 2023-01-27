@@ -3,12 +3,12 @@ package com.carara.associate.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.Objects;
 
@@ -24,13 +24,12 @@ public class Associate {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    //    @CPF
+    @CPF(message = "CPF is invalid")
     @Column(name = "cpf", nullable = false, unique = true)
     @NotBlank(message = "CPF is mandatory")
-    @Size(min = 11, max = 14, message = "CPF must have 11 digits")
     private String cpf;
 
-    @Email
+    @Email(message = "Email is invalid")
     @NotBlank(message = "Email is mandatory")
     @Column(name = "email", nullable = false)
     private String email;
