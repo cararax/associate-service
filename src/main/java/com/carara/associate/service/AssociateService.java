@@ -5,6 +5,8 @@ import com.carara.associate.infrastructure.repository.AssociateRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class AssociateService {
@@ -21,5 +23,7 @@ public class AssociateService {
         associate.setCpf(associate.getCpf().replaceAll("\\D", ""));
     }
 
-
+    public Optional<Associate> findById(Long id) {
+        return associateRepository.findById(id);
+    }
 }

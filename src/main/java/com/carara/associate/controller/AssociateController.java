@@ -5,13 +5,11 @@ import com.carara.associate.service.AssociateService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/associates")
@@ -19,6 +17,11 @@ import java.net.URI;
 public class AssociateController {
 
     AssociateService associateService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Associate>> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(associateService.findById(id));
+    }
 
     @PostMapping
     public ResponseEntity<Associate> createAssociate(@Valid @RequestBody Associate associate) {
@@ -31,5 +34,4 @@ public class AssociateController {
         return ResponseEntity.created(location)
                 .body(associateEntity);
     }
-
 }
