@@ -5,4 +5,4 @@ _  ___ |(__  )_(__  )/ /_/ / /__ _  / / /_/ // /_ /  __/     ____/ //  __/  /   
 /_/  |_/____/ /____/ \____/\___/ /_/  \__,_/ \__/ \___/      /____/ \___//_/    _____/ /_/  \___/ \___/
 
 ${spring.application.name} ${spring.application.version}
-Made with <3 by ${spring.application.author.name} <spring.application.author.email>
+Made with <3 by ${spring.application.author.name} <${spring.application.author.email}>

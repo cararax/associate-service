@@ -4,8 +4,21 @@ spring:
     version: 1.0.0
     author:
       name: Pedro Carara
-      email : cararax@gmail.com
+      email: cararax@gmail.com
 
-server:
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  server:
   port: 8080
 
