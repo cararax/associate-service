@@ -15,15 +15,14 @@ public class AssociateService {
 
     public Associate createAssociate(Associate associate) {
         cpfToNumbers(associate);
-
         return associateRepository.save(associate);
-    }
-
-    private static void cpfToNumbers(Associate associate) {
-        associate.setCpf(associate.getCpf().replaceAll("\\D", ""));
     }
 
     public Optional<Associate> findById(Long id) {
         return associateRepository.findById(id);
+    }
+
+    private void cpfToNumbers(Associate associate) {
+        associate.setCpf(associate.getCpf().replaceAll("\\D", ""));
     }
 }

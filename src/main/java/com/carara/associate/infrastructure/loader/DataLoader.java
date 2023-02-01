@@ -16,11 +16,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
         if(associateRepository.count() == 0) {
             loadAssociateData();
         }
-
     }
 
     public void loadAssociateData(){

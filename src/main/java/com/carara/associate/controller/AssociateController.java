@@ -19,11 +19,10 @@ public class AssociateController {
     AssociateService associateService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(@PathVariable("id") Long id) {
-        return associateService.findById(id).<ResponseEntity<Object>>map(ResponseEntity::ok)
+    public ResponseEntity<Associate> findById(@PathVariable("id") Long id) {
+        return associateService.findById(id).map(ResponseEntity::ok)
                 .orElseThrow(() -> new EntityNotFoundException("Associate not found for id: " + id));
     }
-
 
     @PostMapping
     public ResponseEntity<Associate> createAssociate(@Valid @RequestBody Associate associate) {
